@@ -4,7 +4,7 @@ interface Props {}
 
 export default function RightSection(props: Props)  {
   return (
-    <div className="flex flex-col bg-stars bg-cover p-16">
+    <section className="flex flex-col bg-stars bg-cover p-16">
       <div className="flex flex-1 items-center justify-center">
         <p className="w-[360px] text-center leading-relaxed">
           Você ainda não registrou nenhuma lembrança, começa{" "}
@@ -14,6 +14,6 @@ export default function RightSection(props: Props)  {
           !
         </p>
       </div>
-    </div>
+    </section>
   )
 }
