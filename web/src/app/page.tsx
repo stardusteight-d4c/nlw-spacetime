@@ -1,5 +1,5 @@
-import LeftSection from "./components/LeftSection"
-import RightSection from "./components/RightSection"
+import LeftSection from "./components/left-section/LeftSection"
+import RightSection from "./components/right-section/RightSection"
 
 export default function Home() {
   return (
