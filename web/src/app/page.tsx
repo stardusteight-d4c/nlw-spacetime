@@ -1,3 +1,4 @@
+import { cookies } from "next/headers"
 import LeftSection from "./components/left-section/LeftSection"
 import RightSection from "./components/right-section/RightSection"
 
