@@ -29,9 +29,9 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${baiJamjuree.variable} bg-gray-900 font-roboto text-gray-100`}
       >
-        <main className="grid min-h-screen grid-cols-2">
+        <main className="grid min-h-screen grid-cols-2 overflow-hidden">
           <LeftSection />
-          <section className="flex flex-col bg-stars bg-cover p-16">
+          <section className="flex overflow-y-scroll flex-col bg-stars bg-cover">
             {children}
           </section>
         </main>
