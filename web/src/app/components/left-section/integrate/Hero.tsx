@@ -17,7 +17,7 @@ export const Hero = (props: Props) => {
           com o mundo!
         </p>
       </div>
-      <DefaultButton title="CADASTRAR LEMBRANÇA" />
+      <DefaultButton href="/memories/new" title="CADASTRAR LEMBRANÇA" />
     </div>
   )
 }
