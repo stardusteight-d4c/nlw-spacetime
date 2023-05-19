@@ -19,7 +19,7 @@ export const Profile = (props: Props) => {
 
       <p className="max-w-[140px] text-sm leading-snug">
         {name}
-        <a href="" className="block text-red-400 hover:text-red-300 cursor-pointer">
+        <a href="/api/auth/logout" className="block text-red-400 hover:text-red-300 cursor-pointer">
           Quero sair
         </a>
       </p>

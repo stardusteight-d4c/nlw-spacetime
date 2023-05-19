@@ -1,6 +1,6 @@
 import { cookies } from "next/headers"
 import { leftSectionStyles as css } from "./styles"
-import { Login } from "./integrate/Login"
+import { SignIn } from "./integrate/SignIn"
 import { Copyright } from "./integrate/Copyright"
 import { Hero } from "./integrate/Hero"
 import { Profile } from "./integrate/Profile"
@@ -14,7 +14,7 @@ export default function LeftSection(props: Props) {
     <section className={css.wrapper}>
       <div className={css.blur} />
       <div className={css.stripes} />
-      {isAuthenticated ? <Profile /> : <Login />}
+      {isAuthenticated ? <Profile /> : <SignIn />}
       <Hero />
       <Copyright />
     </section>

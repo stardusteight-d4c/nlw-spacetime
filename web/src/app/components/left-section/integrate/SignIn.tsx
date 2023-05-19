@@ -3,7 +3,7 @@ import React from "react"
 
 interface Props {}
 
-export const Login = (props: Props) => {
+export const SignIn = (props: Props) => {
   return (
     <a
       href={`https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}`}

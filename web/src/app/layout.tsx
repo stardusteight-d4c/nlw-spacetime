@@ -1,3 +1,4 @@
+import LeftSection from "./components/left-section/LeftSection"
 import "./globals.css"
 import {
   Roboto_Flex as Roboto,
@@ -28,7 +29,12 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${baiJamjuree.variable} bg-gray-900 font-roboto text-gray-100`}
       >
-        {children}
+        <main className="grid min-h-screen grid-cols-2">
+          <LeftSection />
+          <section className="flex flex-col bg-stars bg-cover p-16">
+            {children}
+          </section>
+        </main>
       </body>
     </html>
   )
