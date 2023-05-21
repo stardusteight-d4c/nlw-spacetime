@@ -27,11 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.variable} ${baiJamjuree.variable} bg-gray-900 font-roboto text-gray-100`}
+        className={`${roboto.variable} ${baiJamjuree.variable} h-screen overflow-hidden bg-gray-900 font-roboto text-gray-100`}
       >
-        <main className="grid min-h-screen grid-cols-2 overflow-hidden">
+        <main className="grid min-h-screen grid-cols-2">
           <LeftSection />
-          <section className="flex overflow-y-scroll flex-col bg-stars bg-cover">
+          <section className="flex overflow-y-scroll h-screen flex-col bg-stars bg-cover">
             {children}
           </section>
         </main>
