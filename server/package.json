@@ -15,7 +15,7 @@
     "@fastify/jwt": "^6.7.1",
     "@fastify/multipart": "^7.6.0",
     "@fastify/static": "^6.10.1",
-    "@prisma/client": "^4.14.0",
+    "@prisma/client": "^4.14.1",
     "axios": "^1.4.0",
     "fastify": "^4.17.0",
     "zod": "^3.21.4"
@@ -23,7 +23,7 @@
   "devDependencies": {
     "@types/node": "^20.1.5",
     "dotenv": "^16.0.3",
-    "prisma": "^4.14.0",
+    "prisma": "^4.14.1",
     "tsx": "^3.12.7",
     "typescript": "^5.0.4"
   }
