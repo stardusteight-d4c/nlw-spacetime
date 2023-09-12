@@ -88,7 +88,7 @@ export async function GET(request: NextRequest) {
         code,
       }),
     }).then((res) => res.json())
-    const { token } = registerResponse.data
+    const { token } = registerResponse
     const redirectURL = redirectTo ?? new URL("/", request.url)
     const cookieExpiresInSeconds = 60 * 60 * 24 * 30
     return NextResponse.redirect(redirectURL, {
@@ -138,7 +138,7 @@ async function handleCreateMemory(event: FormEvent<HTMLFormElement>) {
       method: "POST",
       body: uploadFormData,
     }).then((res) => res.json())
-    coverUrl = uploadResponse.data.fileUrl
+    coverUrl = uploadResponse.fileUrl
   }
   await fetch("http://localhost:3333/memories", {
     method: "POST",
@@ -185,5 +185,7 @@ export async function uploadRoutes(app: FastifyInstance) {
   })
 }
 ```
+
+![screen](./screenshots/desktop-screen-02.png)
 
 <p align="center">Project made with :blue_heart: by <a href="https://github.com/stardusteight-d4c">Gabriel Sena</a></p>

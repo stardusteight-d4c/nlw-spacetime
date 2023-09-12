@@ -10,13 +10,13 @@ interface Props {}
 export const Form = (props: Props) => {
   const router = useRouter()
 
-  const cookies = document.cookie.split(";")
-  const tokenCookie = cookies.find((cookie) =>
-    cookie.trim().startsWith("token="),
-  )
-  const token = tokenCookie?.split("=")[1]
-
+  
   async function handleCreateMemory(event: FormEvent<HTMLFormElement>) {
+    const cookies = document.cookie.split(";")
+    const tokenCookie = cookies.find((cookie) =>
+      cookie.trim().startsWith("token="),
+    )
+    const token = tokenCookie?.split("=")[1]
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
     const fileToUpload = formData.get("coverUrl")
@@ -28,7 +28,7 @@ export const Form = (props: Props) => {
         method: "POST",
         body: uploadFormData,
       }).then((res) => res.json())
-      coverUrl = uploadResponse.data.fileUrl
+      coverUrl = uploadResponse.fileUrl
     }
     await fetch("http://localhost:3333/memories", {
       method: "POST",
