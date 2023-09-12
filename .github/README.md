@@ -108,19 +108,19 @@ The strategy of sending data using the multipart/form-data format is a common te
 
 Here are the main components and principles of the multipart/form-data sending strategy:
 
-- HTML Form: On the client side, you create an HTML form where users can fill in data fields, including file input fields (<input type="file">). The form must also specify enctype="multipart/form-data" as an attribute, indicating that data will be sent in multipart/form-data format.
+- **HTML Form**: On the client side, you create an HTML form where users can fill in data fields, including file input fields (<input type="file">). The form must also specify enctype="multipart/form-data" as an attribute, indicating that data will be sent in multipart/form-data format.
 
-- Multipart Encoding: When the user submits the form, the form data is packaged in an HTTP request with a Content-Type header set to multipart/form-data. Form data, including files, is divided into multiple parts (form parts) separated by a delimiter.
+- **Multipart Encoding**: When the user submits the form, the form data is packaged in an HTTP request with a Content-Type header set to multipart/form-data. Form data, including files, is divided into multiple parts (form parts) separated by a delimiter.
 
-- Delimiters: Delimiters are special sequences of characters that separate each part of the form. They are used to indicate where each form field begins and ends and their respective values, as well as the files sent.
+- **Delimiters**: Delimiters are special sequences of characters that separate each part of the form. They are used to indicate where each form field begins and ends and their respective values, as well as the files sent.
 
-- Field Name: Each part of the form includes a header that specifies the field name (usually corresponding to the name attribute in HTML) and other information such as the content type (for example, image/jpeg for a JPG image).
+- **Field Name**: Each part of the form includes a header that specifies the field name (usually corresponding to the name attribute in HTML) and other information such as the content type (for example, image/jpeg for a JPG image).
 
-- Content: The content of each part of the form includes the actual field data, such as the value of a text field or the content of the submitted file. The file data is included as binary.
+- **Content**: The content of each part of the form includes the actual field data, such as the value of a text field or the content of the submitted file. The file data is included as binary.
 
-- Server-side Processing: On the server side, the web server or web application needs to process the multipart/form-data request to extract the form data and uploaded files. This is often done using libraries or tools that facilitate the processing of multipart/form-data requests. Data can be stored on disk, processed, or used as needed.
+- **Server-side Processing**: On the server side, the web server or web application needs to process the multipart/form-data request to extract the form data and uploaded files. This is often done using libraries or tools that facilitate the processing of multipart/form-data requests. Data can be stored on disk, processed, or used as needed.
 
-- Security: It is important to take security measures when dealing with sending multipart/form-data data, such as limiting the size of files that can be sent, checking the file type to prevent malicious upload attacks (e.g. ensuring that a JPEG file is actually a JPEG image) and protect against denial of service attacks.
+- **Security**: It is important to take security measures when dealing with sending multipart/form-data data, such as limiting the size of files that can be sent, checking the file type to prevent malicious upload attacks (e.g. ensuring that a JPEG file is actually a JPEG image) and protect against denial of service attacks.
 
 The multipart/form-data upload strategy is essential when you need to allow users to upload files, such as profile images, documents, videos, or any type of binary file, to a web server. It is a powerful technique that is widely used in web applications that involve file uploading, such as social networks, file sharing services, and content management systems.
 
