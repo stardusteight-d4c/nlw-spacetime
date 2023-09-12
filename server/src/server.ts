@@ -17,7 +17,9 @@ app.register(fastifyStatic, {
 })
 app.register(multipart)
 app.register(cors, {
-  origin: true,
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 })
 app.register(jwt, {
   secret: process.env.JWT_SECRET!,

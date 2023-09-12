@@ -24,13 +24,13 @@ export const Form = (props: Props) => {
     if (fileToUpload) {
       const uploadFormData = new FormData()
       uploadFormData.set("file", fileToUpload)
-      const uploadResponse = await fetch("/upload", {
+      const uploadResponse = await fetch("http://localhost:3333/upload", {
         method: "POST",
         body: uploadFormData,
       }).then((res) => res.json())
       coverUrl = uploadResponse.data.fileUrl
     }
-    await fetch("/memories", {
+    await fetch("http://localhost:3333/memories", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,

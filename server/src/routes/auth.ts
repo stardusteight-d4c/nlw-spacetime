@@ -2,6 +2,7 @@ import { FastifyInstance } from "fastify"
 import { z } from "zod"
 import axios from "axios"
 import { prisma } from "../lib/prisma"
+import { log } from "node:console"
 
 export async function authRoutes(app: FastifyInstance) {
   app.post("/register", async (request) => {
@@ -10,6 +11,10 @@ export async function authRoutes(app: FastifyInstance) {
         code: z.string(),
       })
       const { code } = bodySchema.parse(request.body)
+      console.log('process.env.GITHUB_CLIENT_ID', process.env.GITHUB_CLIENT_ID);
+      console.log('process.env.GITHUB_CLIENT_SECRET', process.env.GITHUB_CLIENT_SECRET);
+      console.log('code', code);
+      
       const accessTokenResponse = await axios.post(
         "https://github.com/login/oauth/access_token",
         null,
@@ -24,6 +29,7 @@ export async function authRoutes(app: FastifyInstance) {
           },
         },
       )
+      console.log(accessTokenResponse)
       const { access_token } = accessTokenResponse.data
       const userResponse = await axios.get("https://api.github.com/user", {
         headers: {
