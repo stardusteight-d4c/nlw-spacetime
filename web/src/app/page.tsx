@@ -1,10 +1,8 @@
 import Link from "next/link"
 import { cookies } from "next/headers"
 import { EmptyMemories } from "./components/right-section/EmptyMemories"
-import { api } from "@/lib/api"
 import dayjs from "dayjs"
 import ptBr from "dayjs/locale/pt-br"
-import Image from "next/legacy/image"
 import { ArrowRight } from "lucide-react"
 
 dayjs.locale(ptBr)
@@ -24,11 +22,11 @@ export default async function Home() {
     return <EmptyMemories />
   }
 
-  const response = await api.get("/memories", {
+  const response = await fetch("/memories", {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  })
+  }).then((res) => res.json())
 
   const memories: IMemory[] = response.data
 

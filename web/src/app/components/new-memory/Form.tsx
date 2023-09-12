@@ -3,14 +3,13 @@
 import { FormEvent } from "react"
 import { MediaPicker } from "./MediaPicker"
 import { Camera } from "lucide-react"
-import { api } from "@/lib/api"
 import { useRouter } from "next/navigation"
 
 interface Props {}
 
 export const Form = (props: Props) => {
   const router = useRouter()
-  
+
   const cookies = document.cookie.split(";")
   const tokenCookie = cookies.find((cookie) =>
     cookie.trim().startsWith("token="),
@@ -25,22 +24,23 @@ export const Form = (props: Props) => {
     if (fileToUpload) {
       const uploadFormData = new FormData()
       uploadFormData.set("file", fileToUpload)
-      const uploadResponse = await api.post("/upload", uploadFormData)
+      const uploadResponse = await fetch("/upload", {
+        method: "POST",
+        body: uploadFormData,
+      }).then((res) => res.json())
       coverUrl = uploadResponse.data.fileUrl
     }
-    await api.post(
-      "/memories",
-      {
+    await fetch("/memories", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
         coverUrl,
         content: formData.get("content"),
         isPublic: formData.get("isPublic"),
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      },
-    )
+      }),
+    }).then((res) => res.json())
     router.push("/")
   }
 
